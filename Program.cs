@@ -9,7 +9,6 @@ class Program
         {
             bool repeat = true;
             int length = 0;
-            string answer = "";
             int adding = 0;
             int specialX = -1;
             while (repeat)
@@ -21,15 +20,7 @@ class Program
                 {
                     repeat = false;
                 }
-
-                Console.WriteLine("spceial");
-                answer = Console.ReadLine();
             }
-            if (answer.ToLower() != "s")
-            {
-                adding = 2;
-            }
-            length += adding;
             string[,] array = new string[length, length];
             double center = Math.Ceiling(length / 2d); //3x3=2, 5x5=3, 7x7=4
             center -= 1d;
@@ -61,15 +52,16 @@ class Program
                         }
                         else //the left side
                         {
-                            last = true; 
-                            array[x, y] = "[V]";
-                            CheckForAbove(x, y, ref array);
+                            last = true;
+                            var symbol = x < center ? @"[/]" : @"[\]";
+                            array[x, y] = symbol;
+                            CheckForAbove(x, y, ref array, (int)center);
                         }
                         //triggers only once for the first row of the part of the circle that is touching the left wall
                         //try changing it to a [T] to see where if you don't understand
                         if (y == 0 && last && specialX == -1)
                         {
-                            array[x, y] = "[V]";
+                            array[x, y] = @"[/]";
                             specialX = x;
                         }
                         continue;
@@ -77,9 +69,10 @@ class Program
 
                     if (last) //the right side
                     { 
-                        array[x, y-1] = "[V]";
+                        var symbol = x < center ? @"[\]" : @"[/]";
+                        array[x, y-1] = symbol;
                         last = false;
-                        CheckForAbove(x, y-1, ref array);
+                        CheckForAbove(x, y-1, ref array, (int)center);
                     }
                     array[x, y] = "[ ]";
                 }
@@ -91,11 +84,12 @@ class Program
             //try changing it to a [T] to see where if you don't understand
             for (int i = 0; i <= length; i+=length-1)
             {
-                array[half + half - specialX, i] = "[V]";
-                array[half, i] = "[?]";
+                var symbol = i == 0 ? @"[\]" : @"[/]";
+                array[half + half - specialX, i] = symbol;
+                //array[half, i] = "[?]";
             }
             //this overrides the top part of the rightmost part of the circle, try changing it to a [T] to see where if you don't understand
-            array[specialX, length - 1] = "[V]";
+            array[specialX, length - 1] = @"[\]";
             //pretty much an unnecessary leftover, it checks if the length of the whole circle is divisible by two and if yes, it adds an O into the center
             if (length % 2 != 0)
             {
@@ -126,10 +120,12 @@ class Program
                         case "[T]":
                             Console.ForegroundColor = ConsoleColor.Green;
                             break;
+                        case "[F]":
+                            Console.ForegroundColor = ConsoleColor.White;
+                            array[i, j] = "[X]";
+                            break;
                         default:
                             Console.ForegroundColor = ConsoleColor.Magenta;
-                            //Console.ForegroundColor = ConsoleColor.Blue;
-                            //array[i, j] = "[V]";
                             break;
                     }
                     if (length == 3)
@@ -152,16 +148,30 @@ class Program
             eternityRepeat = false;
         }
     }
-    static void CheckForAbove(int x, int y, ref string[,] array)
+    static void CheckForAbove(int x, int y, ref string[,] array, int center)
     {
         if (x == 0)
         {
             return;
         }
-        if (array[x - 1, y] == "[V]" || array[x - 1, y] == "[F]")
+        if (x > center)
         {
+            if (array[x - 1, y] != "[X]" && array[x - 1, y] != "[ ]")
+            {
+                array[x - 1, y] = "[F]";
+            }
+            if (array[x - 1, y] != "[F]") return;
             array[x - 1, y] = "[F]";
+        }
+        else
+        {
+            if (array[x - 1, y] != "[X]" && array[x - 1, y] != "[ ]")
+            {
+                array[x, y] = "[F]";
+            }
+            if (array[x - 1, y] != "[F]") return;
             array[x, y] = "[F]";
         }
+
     }
 }

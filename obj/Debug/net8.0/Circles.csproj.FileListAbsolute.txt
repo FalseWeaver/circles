@@ -12,3 +12,4 @@ C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\refint\Circles.dll
 C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.pdb
 C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.genruntimeconfig.cache
 C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\ref\Circles.dll
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.sourcelink.json
