@@ -1,0 +1,14 @@
+C:\Users\marti\RiderProjects\Circles\Circles\bin\Debug\net8.0\Circles.exe
+C:\Users\marti\RiderProjects\Circles\Circles\bin\Debug\net8.0\Circles.deps.json
+C:\Users\marti\RiderProjects\Circles\Circles\bin\Debug\net8.0\Circles.runtimeconfig.json
+C:\Users\marti\RiderProjects\Circles\Circles\bin\Debug\net8.0\Circles.dll
+C:\Users\marti\RiderProjects\Circles\Circles\bin\Debug\net8.0\Circles.pdb
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.AssemblyInfoInputs.cache
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.AssemblyInfo.cs
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.csproj.CoreCompileInputs.cache
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.dll
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\refint\Circles.dll
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.pdb
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\Circles.genruntimeconfig.cache
+C:\Users\marti\RiderProjects\Circles\Circles\obj\Debug\net8.0\ref\Circles.dll
